@@ -1,11 +1,28 @@
-import React from 'react'
+import React from "react";
 
-const Congrats = () => {
+export default () => {
+ 
     return (
-        <div>
-            
+      <div data-test="component-congrats">
+        <span data-test="message-congrats">
+          Congratulations! You guessed the word!
+        </span>
+      </div>
+    );
+  
+};
+/*
+export default (props) => {
+    if (props.success) {
+      return (
+        <div data-test="component-congrats">
+          <span data-test="message-congrats">
+            Congratulations! You guessed the word!
+          </span>
         </div>
-    )
-}
-
-export default Congrats
+      );
+    } else {
+      return (<div data-test="component-congrats" ></div>);
+    }
+  };
+  */
