@@ -1,15 +1,10 @@
 import React from "react";
 import Congrats from "./Congrats";
-import Enzyme, { shallow } from "enzyme";
-import EnzymeAdapter from "enzyme-adapter-react-16";
-import PropTypes from "prop-types";
+import { shallow } from "enzyme";
 import checkPropTypes from "check-prop-types";
-
 import { exportAllDeclaration } from "@babel/types";
 
 //SETUP
-
-Enzyme.configure({ adapter: new EnzymeAdapter() });
 
 const defaultProps = {success: false};
 
@@ -23,9 +18,6 @@ const setup = (props = {}) => {
 const findByTestAttr = (wrapper, val) => {
   return wrapper.find(`[data-test='${val}']`);
 };
-
-
-
 
 
 
