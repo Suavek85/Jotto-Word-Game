@@ -1,28 +1,20 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-export default () => {
+const Congrats = (props) => {
  
     return (
       <div data-test="component-congrats">
         <span data-test="message-congrats">
-          Congratulations! You guessed the word!
+          {props.success? 'Congratulations! You guessed the word!' : null }
         </span>
       </div>
     );
   
 };
-/*
-export default (props) => {
-    if (props.success) {
-      return (
-        <div data-test="component-congrats">
-          <span data-test="message-congrats">
-            Congratulations! You guessed the word!
-          </span>
-        </div>
-      );
-    } else {
-      return (<div data-test="component-congrats" ></div>);
-    }
-  };
-  */
+
+Congrats.propTypes = {
+  success: PropTypes.bool.isRequired
+}
+
+export default Congrats

@@ -1,14 +1,18 @@
-import React from "react";
+import React, { Component } from "react";
 import Congrats from "./Congrats";
 
-import "./App.css";
+class App extends Component {
+  state = {
+    success: false
+  };
 
-function App() {
-  return (
-    <div>
-      <Congrats />
-    </div>
-  );
+  render() {
+    return (
+      <div>
+        <Congrats success={this.state.success} />
+      </div>
+    );
+  }
 }
 
 export default App;
