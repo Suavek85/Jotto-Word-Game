@@ -1,25 +1,17 @@
 import React from "react";
 import Congrats from "./Congrats";
 import { shallow } from "enzyme";
-import checkPropTypes from "check-prop-types";
+import { findByTestAttr, propTest } from "../test/testUtils";
 import { exportAllDeclaration } from "@babel/types";
 
 //SETUP
 
-const defaultProps = {success: false};
+const defaultProps = { success: false };
 
 const setup = (props = {}) => {
-  const setupProps = {...defaultProps, ...props};
+  const setupProps = { ...defaultProps, ...props };
   return shallow(<Congrats {...setupProps} />);
 };
-
-//TEST UTILS
-
-const findByTestAttr = (wrapper, val) => {
-  return wrapper.find(`[data-test='${val}']`);
-};
-
-
 
 //TESTS
 
@@ -28,7 +20,6 @@ test("renders correctly", () => {
   const component = findByTestAttr(wrapper, "component-congrats");
   expect(component.length).toBe(1);
 });
-
 
 //TESTING PROPS
 
@@ -44,19 +35,10 @@ test("renders non-empty success message when success props is true", () => {
   expect(message.text().length).not.toBe(0);
 });
 
-
 //TESTING PROP TYPES
 
 test("does not throw warning with expected props", () => {
   const expectedProps = { success: false };
-
-  const propError = checkPropTypes(
-    Congrats.propTypes,
-    expectedProps,
-    "prop",
-    Congrats.name
-  );
-
-  expect(propError).toBeUndefined();
+  propTest(Congrats, expectedProps);
   
 });
