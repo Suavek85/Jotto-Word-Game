@@ -2,7 +2,7 @@ import React from "react";
 import Congrats from "./Congrats";
 import { shallow } from "enzyme";
 import { findByTestAttr, propTest } from "../test/testUtils";
-import { exportAllDeclaration } from "@babel/types";
+
 
 //SETUP
 
