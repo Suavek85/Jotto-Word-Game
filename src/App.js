@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Congrats from "./Congrats";
 import GuessedWords from "./GuessedWords";
+import Incrementing from "./Incrementing"
 
 class App extends Component {
   state = {
@@ -14,6 +15,7 @@ class App extends Component {
         <h1 className='heading'>Jotto</h1>
         <Congrats success={this.state.success} />
         <GuessedWords guessedWords={this.state.guessedWords} />
+        <Incrementing />
       </div>
     );
   }
