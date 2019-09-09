@@ -1,7 +1,8 @@
 import React from "react";
 //import ReactDOM from 'react-dom';
 import App from "./App";
-import Enzyme, { shallow } from "enzyme";
+import Congrats from "./Congrats";
+import Enzyme, { shallow, mount } from "enzyme";
 import EnzymeAdapter from "enzyme-adapter-react-16";
 import { exportAllDeclaration } from "@babel/types";
 
@@ -12,11 +13,15 @@ test("renders without crashing", () => {
   expect(wrapper).toBeTruthy();
 });
 
-
-/*
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+test('renders Congrats component', () => {
+  const wrapper = mount(<App />);
+  expect(wrapper.find(Congrats).length).toEqual(1);
 });
-*/
+
+test('renders h1 text', () => {
+  const wrapper = mount(<App />);
+  expect(wrapper.find('h1').text()).toEqual('Jotto');
+});
+
+
+

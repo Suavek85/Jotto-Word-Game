@@ -11,7 +11,7 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <h1>Jotto</h1>
+        <h1 className='heading'>Jotto</h1>
         <Congrats success={this.state.success} />
         <GuessedWords guessedWords={this.state.guessedWords} />
       </div>
