@@ -9,7 +9,7 @@ const setup = (initialState = {}) => {
     const store = storeFactory( initialState )
     const wrapper = shallow(<Input store={store} />).dive().dive()
     //double dive in new versions of redux
-    //shallow vs dive methods (to access what sits underneath component wrapper)
+    //dive() in shallow allow accessing what's inside a component that's inside a tested component
     ///console.log(wrapper.debug())
     return wrapper
 }
@@ -23,6 +23,8 @@ describe("render", () => {
           const initialState = {success: false};
           wrapper = setup(initialState)
       })
+
+      //Rendering tests
     test("renders component without error", () => {
         const component = findByTestAttr(wrapper, 'component-input');
         expect(component.length).toBe(1);

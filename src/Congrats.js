@@ -10,7 +10,6 @@ const Congrats = (props) => {
         </span>
       </div>
     );
-  
 };
 
 Congrats.propTypes = {
