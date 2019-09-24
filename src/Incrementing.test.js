@@ -3,6 +3,11 @@ import Incrementing from "./Incrementing";
 import { shallow } from "enzyme";
 import { findByTestAttr } from "../test/testUtils";
 
+test('snapshot matches', () => {
+  const wrapper = shallow(<Incrementing />);
+  expect(wrapper).toMatchSnapshot()
+})
+
 
 describe('wrapper and state', () => {
   let wrapper;
@@ -10,13 +15,19 @@ describe('wrapper and state', () => {
     wrapper = shallow(<Incrementing />);
   });
   test('wrapper is an instance of class', () => {
+    expect.assertions(2)
     const instance = wrapper.instance();
     expect(instance).toBeInstanceOf(Incrementing);
+    expect(instance).toBeTruthy();
   });
 
   test('initial state is equal to zero', () => {
+    expect.assertions(2)
     const instance = wrapper.instance();
     expect(instance.state.counter).toBe(0);
+    expect(wrapper.state()).toEqual({
+      counter: 0
+    })
   });
 })
 
@@ -70,7 +81,4 @@ describe('counter component', () => {
     expect(counterWrapper.text()).toBe("11");
   });
 })
-
-
-
 
